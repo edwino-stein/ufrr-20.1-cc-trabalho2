@@ -1,0 +1,15 @@
+{
+  "name": "aula2",
+  "version": "1.0.0",
+  "description": "Trabalho referente a aula 2 de compiladores",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape ${T:-tests/*.test.js} | tap-spec"
+  },
+  "author": "Edwino Stein",
+  "license": "MIT",
+  "dependencies": {
+    "tap-spec": "^5.0.0",
+    "tape": "^4.13.2"
+  }
+}
