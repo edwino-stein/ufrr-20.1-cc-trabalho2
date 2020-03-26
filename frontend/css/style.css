@@ -1,0 +1,50 @@
+#container {
+    padding-top: 20px;
+}
+
+#container .grid .column:last-child{
+    padding-left: 0
+}
+
+#source-code {
+    font-family: monospace;
+    resize: none;
+}
+
+#actions {
+    text-align: center;
+}
+
+#load-file-input {
+    display: none;
+}
+
+#hints {
+    margin-top: 15px;
+}
+
+#hints .header{
+    margin: 0 0 .28571429rem 0;
+}
+
+#message {
+    margin-top: 23px;
+}
+
+#symble-table {
+    display: none;
+}
+
+#symble-table .header{
+    margin: 0 0 .28571429rem 0;
+}
+
+#symble-table .table{
+    margin: 0;
+}
+
+#footer {
+    text-align: center;
+    font-size: larger;
+    padding: 7px 0;
+}

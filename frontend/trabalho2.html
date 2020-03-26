@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>2º Trabalho de Construção de Compiladores - Edwino Stein</title>
+
+        <link rel="stylesheet" type="text/css" href="css/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="js/semantic.min.js"></script>
+        <script type="text/javascript" src="Lexer.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+
+    </head>
+    <body>
+        <div id="container" class="ui container">
+            <h2 class="ui header">
+                Analisador Léxico
+                <div class="sub header">2º Trabalho de Construção de Compiladores</div>
+            </h2>
+            <div class="ui two column grid segment">
+                <div class="column">
+                    <div class="ui form">
+                        <div class="field">
+                            <label>Código fonte</label>
+                            <textarea rows="15" name="source-code" id="source-code">
+                            </textarea>
+                        </div>
+                        <div id="actions" class="field">
+                            <button id="run" class="ui labeled positive icon button">
+                                <i class="play icon"></i>
+                                Analisar
+                            </button>
+                            <button id="load-file-btn" class="ui labeled primary icon button">
+                                <i class="file icon"></i>
+                                Carregar arquivo
+                            </button>
+                            <input id="load-file-input" type="file" accept=".txt,*.*">
+                        </div>
+                    </div>
+                    <div id="hints">
+                        <h5 class="ui header" >Sobre a linguagem</h5>
+                        <div class="ui relaxed list">
+                            <div class="item">
+                                <div class="content">
+                                    <span class="header">Tipos primitivos:</span>
+                                    <div class="description">
+                                        <span class="ui grey label">int</span>
+                                        <span class="ui grey label">float</span>
+                                        <span class="ui grey label">string</span>
+                                        <span class="ui grey label">bool</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="content">
+                                    <span class="header">Operadores aritméticos:</span>
+                                    <div class="description">
+                                        <span class="ui grey label">+</span>
+                                        <span class="ui grey label">-</span>
+                                        <span class="ui grey label">*</span>
+                                        <span class="ui grey label">/</span>
+                                        <span class="ui grey label">%</span>
+                                        <span class="ui grey label">=</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="content">
+                                    <span class="header">Agrupadores e delimitadores:</span>
+                                    <div class="description">
+                                        <span class="ui grey label">(</span>
+                                        <span class="ui grey label">)</span>
+                                        <span class="ui grey label">[</span>
+                                        <span class="ui grey label">]</span>
+                                        <span class="ui grey label">{</span>
+                                        <span class="ui grey label">}</span>
+                                        <span class="ui grey label">,</span>
+                                        <span class="ui grey label">;</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="content">
+                                    <span class="header">Palavras chaves:</span>
+                                    <div class="description">
+                                        <span class="ui grey label">if</span>
+                                        <span class="ui grey label">else</span>
+                                        <span class="ui grey label">while</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="content">
+                                    <span class="header">Exemplos de identificadores:</span>
+                                    <div class="description">
+                                        <span class="ui grey label">var</span>
+                                        <span class="ui grey label">_foo</span>
+                                        <span class="ui grey label">bar_</span>
+                                        <span class="ui grey label">num123</span>
+                                        <span class="ui grey label">_nome_Complexo_123_</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="content">
+                                    <span class="header">Exemplos de literais:</span>
+                                    <div class="description">
+                                        <span class="ui grey label">true</span>
+                                        <span class="ui grey label">false</span>
+                                        <span class="ui grey label">123456</span>
+                                        <span class="ui grey label">123.456</span>
+                                        <span class="ui grey label">.456</span>
+                                        <span class="ui grey label">"olá mundo"</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div id="message" class="ui info message">
+                        <div class="header">
+                            Esperando código para análise
+                        </div>
+                        <p>
+                            Utilize a caixa de texto ao lado para escrever o código
+                            para análise, e então clique no botão <b>Analisar</b>,
+                            ou carrege um arquivo de texto através do botão
+                            <b>Carregar arquivo</b>.
+                        </p>
+                    </div>
+                    <div id="symble-table">
+                        <h5 class="ui header" >Tabela de símbolos</h5>
+                        <table class="ui single line selectable compact table">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Rótulo</th>
+                                    <th>Lexema</th>
+                                    <th>Linha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Código</td>
+                                    <td>Rótulo</td>
+                                    <td>Lexema</td>
+                                    <td>Linha</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <footer id="footer">Edwino A. L. Stein - 2020.1</footer>
+        </div>
+    </body>
+</html>
