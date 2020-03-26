@@ -1,0 +1,3 @@
+string msg1 = "ola";
+string msg2 = "mundo";
+print(msg1," ",msg2,"\n");
